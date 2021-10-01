@@ -1,15 +1,10 @@
-import { Dashboard } from "@material-ui/icons";
+import {Dashboard} from "@material-ui/icons";
+import {Route} from "./types";
 import ExamplePage from "../pages/ExamplePage";
-import OwnerProfilePage from "../pages/OwnerProfile/OwnerProfile";
-import ShopProfilePage from "../pages/ShopsPage/ShopProfilePage/ShopProfilePage";
-import ShopsPage from "../pages/ShopsPage/ShopsPage";
-import TransactionsPage from "../pages/TransactionsPage/TransactionsPage";
-import { Route } from "./types";
-
-
+import TodoPage from '../pages/TodoPage/TodoPage';
 export const routes: Route[] = [
 	{
-		displayName: "Example",
+		displayName: "Home",
 		icon: Dashboard,
 		exact: true,
 		page: ExamplePage,
@@ -17,39 +12,14 @@ export const routes: Route[] = [
 		sideMenu: true,
 	},
 	{
-		displayName: "Owner Profile",
-		icon: Dashboard,
-		exact: true,
-		page: OwnerProfilePage,
-		path: "/profile",
-		sideMenu: false,
-	},
-	{
-		displayName: "Transactions",
-		icon: Dashboard,
-		exact: true,
-		page: TransactionsPage,
-		path: "/transactions",
-		sideMenu: true,
-	},
-	{
-		displayName: "Shops",
-		icon: Dashboard,
-		exact: false,
-		page: ShopsPage,
-		path: "/shops",
-		sideMenu: true,
-		children:[
-			{
-				displayName: "Shop Profile",
-				icon: Dashboard,
-				exact: true,
-				page: ShopProfilePage,
-				path: "/:kid",
-				sideMenu: true,
-			}
-		]
-	},
+		displayName: "Todos",
+		icon: Dashboard, 
+		exact: true, 
+		page: TodoPage, 
+		path: "/todo",
+		sideMenu: true
+	}
+	
 ];
 
 export default routes;

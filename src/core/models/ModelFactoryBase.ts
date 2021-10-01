@@ -1,4 +1,3 @@
-import { Owner } from '.';
 import { ModelBase } from './ModelBase';
 export abstract class ModelFactoryBase<T extends ModelBase> {
 

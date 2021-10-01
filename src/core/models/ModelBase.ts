@@ -1,5 +1,3 @@
-export abstract class ModelBase{
-   _id: string;
-   createdAt: Date;
-   updatedAt: Date;
+export abstract class ModelBase {
+    id: string;
 }

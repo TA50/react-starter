@@ -3,12 +3,12 @@ const useStyles = makeStyles((theme: Theme) => {
 	return {
 		root: {
 			borderRadius: theme.shape.borderRadius,
-			backgroundColor: alpha(theme.palette.divider, 0.25),
+			// backgroundColor: alpha(theme.palette.divider, 0.25),
 		},
 		search: {
 			borderRadius: theme.shape.borderRadius,
 			position: "relative",
-			background: "white",
+			background: "inherit",
 		},
 		searchIcon: {
 			padding: theme.spacing(0, 2),

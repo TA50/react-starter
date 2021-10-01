@@ -1,0 +1,1 @@
+export type QueryOptionsBase ={ [key: string]: any };

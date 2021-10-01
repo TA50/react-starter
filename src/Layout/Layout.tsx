@@ -12,14 +12,16 @@ import Sidebar from "./SideBar/SideBar";
 import { useHistory, useLocation } from "react-router-dom";
 import { getPageTitle } from '../routes/routesHelper';
 import { AccountCircle } from "@material-ui/icons";
+import FeedbackMessage from "./FeedbackMessage/FeedbackMessage";
+import TopBar from "./TopBar/TopBar";
 interface ILayoutProps {
 	// LayoutType: Role;
 }
 const Layout: React.FunctionComponent<ILayoutProps> = (props) => {
 	const classes = useStyles();
-	const location = useLocation();
-	const history = useHistory();
-	const pageTitle = getPageTitle(location.pathname);
+	// const location = useLocation();
+	// const history = useHistory();
+	// const pageTitle = getPageTitle(location.pathname);
 	const [open, setOpen] = React.useState(false);
 
 	const handleDrawerOpen = () => {
@@ -33,7 +35,8 @@ const Layout: React.FunctionComponent<ILayoutProps> = (props) => {
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
-			<AppBar
+			<TopBar handleMenuToggle = {handleDrawerOpen} sidBarOpen={open}/>
+			{/* <AppBar
 				elevation={0}
 				position="fixed"
 				className={clsx(classes.appBar, {
@@ -67,12 +70,13 @@ const Layout: React.FunctionComponent<ILayoutProps> = (props) => {
 						<AccountCircle />
 					</IconButton>
 				</Toolbar>
-			</AppBar>
+			</AppBar> */}
 			<Sidebar open={open} closed={handleDrawerClose} />
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				{props.children}
 			</main>
+			<FeedbackMessage />
 		</div>
 	);
 };

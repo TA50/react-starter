@@ -1,11 +1,11 @@
 export const config_DEVELOPMENT = {
-    serverUrl: "https://operations-dev.kopii.ae/proxy"
+    serverUrl: "https://jsonplaceholder.typicode.com"
 };
 
 export const config_STAGING = {
-    serverUrl: "https://operations-dev.kopii.ae"
+    serverUrl: "https://jsonplaceholder.typicode.com"
 };
 
 export const config_PRODCTION = {
-    serverUrl: "https://operations-dev.kopii.ae"
+    serverUrl: "https://jsonplaceholder.typicode.com"
 };

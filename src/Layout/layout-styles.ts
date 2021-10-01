@@ -70,10 +70,11 @@ export const useStyles = makeStyles((theme: Theme) =>
 		},
 		list: {
 			paddingTop: theme.spacing(0),
-			height:"100%"
-		},
-		logoutButton: {
-			// marginTop: theme.spacing(50),
+			height:"100%",
+			"&  > .MuiGrid-root": { 
+				
+				height:"100%"
+			},
 		},
 	})
 );

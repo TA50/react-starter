@@ -23,7 +23,8 @@ export const getPageTitle = (pathname: string) => {
         return routes.find(route=>{
             return route.exact
         })?.displayName
-    }else{
+    }else if(routes.length==1){
         return routes[0].displayName;
     }
+    
 }

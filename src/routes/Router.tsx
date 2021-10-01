@@ -2,7 +2,6 @@ import * as React from 'react';
 import {  Switch, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { routes } from '.';
-import ErrorHandler from '../components/ErrorHandler/ErrorHandler';
 import Layout from '../Layout/Layout';
 import NotFoundPage from '../pages/NotFound/NotFoundPage';
 

@@ -9,3 +9,4 @@ export * from "./services/Configuration/IConfig"
 export * from "./services/Storage/IStorageService"
 export * from "./services/Storage/MemoryStorageBasedService"
 export * from "./constants";
+export * from "./services/Feedback";

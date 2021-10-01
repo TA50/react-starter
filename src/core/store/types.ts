@@ -1,7 +1,8 @@
+import { Feedback } from './../services/Feedback/Feedback';
 
 import { AppError } from "../types/errors";
 import {  Store } from "redux";
-import { Owner } from "../models";
+
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = {
@@ -18,28 +19,30 @@ export type AppStore = Store<RootState, Action>;
 
 export type CommonState = {
 	error: AppError | null;
+	feedback:Feedback | null;
 };
 
 export enum CommonActionType {
 	ThrowError = "common/THROW_ERROR",
 	DismissError = "common/DISMISS_ERROR",
+	PushFeedback = "common/PUSH_FEEDBACK",
+	RemoveFeedback = "common/REMOVE_FEEDBACK"
 }
 
 export type CommonAction = Action & {
 	type: CommonActionType;
-	payload: AppError | null;
+	payload: AppError | Feedback |null;
 };
 
 
 // Data
 export enum DataActionType { 
-	SetOwner = "data/SET_OWNER",
-	ClearOwner="data/CLEAR_OWNER"
 }
 export type DataState = { 
-	owner: Owner | null;
 } 
 export type DataAction = Action & { 
 	type: DataActionType,
-	payload: Owner | null;
+	// payload: typepfData | null;
 }
+
+// Feedback

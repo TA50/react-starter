@@ -1,27 +1,23 @@
 import { Button, Grid, TextField } from '@material-ui/core';
 import * as React from 'react';
+import TableFilter, { ITableFilterProps } from '../TableFilter';
 import { dateTimeFilterStyles } from './styles';
 
-interface IDateTimeFilter<TItem> {
-    array: TItem[];
-    selectDate: (item: TItem) => Date;
-    getFilterResult: (items: TItem[]) => void;
-}
-
-const DateTimeFilter = <TItem,>(props: React.PropsWithChildren<IDateTimeFilter<TItem>>) => {
+const DateTimeFilter: TableFilter = <TItem,>(props: ITableFilterProps<TItem>) => {
     const classes = dateTimeFilterStyles();
-    const [from, setFrom] = React.useState<string>("");
-    const [to, setTo] = React.useState<string>("");
-    function changeData() {
+    const [from, setFrom] = React.useState<string>(""); // just for ui
+    const [to, setTo] = React.useState<string>(""); // just for ui
+    function getResult() {
         console.log("Change Data", to, from);
         let filteredData = [...props.array];
         if (from && from.trim() !== "") {
-            filteredData = filteredData.filter(t => props.selectDate(t) >= new Date(from));
+            filteredData = filteredData.filter(t => props.select(t) >= new Date(from));
         }
         if (to && to.trim() !== "") {
-            filteredData = filteredData.filter(t =>  props.selectDate(t) <= new Date(to));
+            filteredData = filteredData.filter(t =>  props.select(t) <= new Date(to));
         }
-        props.getFilterResult(filteredData);
+        return filteredData;
+        // props.getFilterResult(filteredData);
     }
     const onDateChange = (src: "to" | "from", value: string) => {
         console.log("On Change", value)
@@ -34,9 +30,11 @@ const DateTimeFilter = <TItem,>(props: React.PropsWithChildren<IDateTimeFilter<T
             return;
         }
     }
+
+    props.getResultFunction(getResult)
     return <div>
 
-        <Grid container spacing={2} className={classes.root}>
+        <Grid container spacing={2} className={classes.root}  alignItems="flex-start">
 
             <Grid item xs={3}>
                 <TextField
@@ -72,9 +70,9 @@ const DateTimeFilter = <TItem,>(props: React.PropsWithChildren<IDateTimeFilter<T
                     onChange={(e) => onDateChange("to", e.target.value)}
                 />
             </Grid>
-            <Grid item xs={3} >
+            {/* <Grid item xs={3} >
                 <Button onClick={()=> changeData()}  variant="outlined">Show</Button>
-            </Grid>
+            </Grid> */}
         </Grid>
 
     </div>;

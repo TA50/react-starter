@@ -29,6 +29,12 @@ const useStyles = makeStyles((theme: Theme) => {
 		csvLink: {
 			color: "inherit",
 			textDecoration: "none"
+		},
+		filterActions: { 
+			marginBottom: theme.spacing(1) 
+		},
+		filters:{
+				paddingTop: theme.spacing(1)
 		}
 	};
 });

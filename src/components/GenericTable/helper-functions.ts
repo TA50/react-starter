@@ -36,19 +36,9 @@ export function convertDataToCsvFormat<TItem>(arr: TItem[], heads: HeadCell<TIte
 }
 
 
-// export function createPageCountArray(length: number): number[] {
-//     const incrementConst = 5;
-//     const pageCountArray = [];
-//     for (let i = 1; i <= (length / incrementConst); i++) {
-//         pageCountArray.push(i * incrementConst);
-//     }
-//     if (length % incrementConst > 0) {
-//         pageCountArray.pop()
-//         pageCountArray.push(length);
-//     }
-//     return pageCountArray;
-// }
+export function arraysIntersection<T>(arrays: T[][], isEqual: (a: T, b: T) => boolean) {
+    const data = arrays.sort((a, b) => b.length - a.length);
+    // const resultArray: T[] = [...smallestArray];
+    return data.reduce((a, b) => a.filter(c => b.find(x => isEqual(x, c)) ));
 
-// console.log(createPageCountArray(40));
-// console.log(createPageCountArray(78));
-// console.log(createPageCountArray(489));
+}

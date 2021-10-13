@@ -4,15 +4,15 @@ import * as React from 'react';
 import ErrorHandler from './components/ErrorHandler/ErrorHandler';
 import Loader from './components/Loader/Loader';
 import Router from './routes/Router';
-import { withStyles } from '@material-ui/core';
 import { appStyles } from './app-styles';
+import { Box } from '@mui/material';
 
 
 interface IAppState {
 	loading: boolean;
 }
 interface IAppProps {
-	classes:any
+	// classes:any
  }
 class App extends React.Component<IAppProps, IAppState> {
 
@@ -26,14 +26,14 @@ class App extends React.Component<IAppProps, IAppState> {
 		return (
 			<Loader isLoading={this.state.loading}>
 
-				<div className={this.props.classes.app} >
+				<Box sx={appStyles.app} >
 				<ErrorHandler>
 					<Router/>
 				</ErrorHandler>
-				</div>
+				</Box>
 			</Loader>
 		);
 	}
 }
 
-export default withStyles(appStyles)(App);
+export default App;

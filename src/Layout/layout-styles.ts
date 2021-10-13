@@ -1,7 +1,9 @@
-import { makeStyles, createStyles, Theme } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import {Theme } from "@mui/material"
+
 const drawerWidth = 240;
-export const useStyles = makeStyles((theme: Theme) =>
-	createStyles({
+export const useLayoutStyles = makeStyles((theme: Theme) =>{
+	return {
 		root: {
 			display: "flex",
 		},
@@ -44,7 +46,7 @@ export const useStyles = makeStyles((theme: Theme) =>
 				duration: theme.transitions.duration.leavingScreen,
 			}),
 			overflowX: "hidden",
-			width: theme.spacing(7) + 1,
+			width: `calc(${theme.spacing(7)} + 1px)`,
 			[theme.breakpoints.up("sm")]: {
 				width: theme.spacing(9) + 1,
 			},
@@ -64,6 +66,7 @@ export const useStyles = makeStyles((theme: Theme) =>
 		content: {
 			flexGrow: 1,
 			padding: theme.spacing(1),
+			marginTop: theme.spacing(8)
 		},
 		activeLink: {
 			backgroundColor: theme.palette.primary.light,
@@ -76,5 +79,6 @@ export const useStyles = makeStyles((theme: Theme) =>
 				height:"100%"
 			},
 		},
-	})
+	}
+}
 );

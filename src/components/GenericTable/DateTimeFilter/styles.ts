@@ -1,10 +1,9 @@
-import { makeStyles, Theme } from "@material-ui/core"
+import { SxStyles } from '../../../core/types/index';
 
-export const dateTimeFilterStyles = makeStyles((theme: Theme) => {
-    return {
-        root: {},
-        timeTextField: {
-            marginBottom: theme.spacing(2)
-        }
+// import {S}
+export const styles: SxStyles = {
+    textField: {
+        mb: 2
     }
-})
+};
+

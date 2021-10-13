@@ -1,10 +1,9 @@
-import { Button, Grid, TextField } from '@material-ui/core';
+import { Button, Grid, TextField } from '@mui/material';
 import * as React from 'react';
 import TableFilter, { ITableFilterProps } from '../TableFilter';
-import { dateTimeFilterStyles } from './styles';
+import { styles } from './styles';
 
 const DateTimeFilter: TableFilter = <TItem,>(props: ITableFilterProps<TItem>) => {
-    const classes = dateTimeFilterStyles();
     const [from, setFrom] = React.useState<string>(""); // just for ui
     const [to, setTo] = React.useState<string>(""); // just for ui
     function getResult() {
@@ -14,7 +13,7 @@ const DateTimeFilter: TableFilter = <TItem,>(props: ITableFilterProps<TItem>) =>
             filteredData = filteredData.filter(t => props.select(t) >= new Date(from));
         }
         if (to && to.trim() !== "") {
-            filteredData = filteredData.filter(t =>  props.select(t) <= new Date(to));
+            filteredData = filteredData.filter(t => props.select(t) <= new Date(to));
         }
         return filteredData;
         // props.getFilterResult(filteredData);
@@ -34,11 +33,12 @@ const DateTimeFilter: TableFilter = <TItem,>(props: ITableFilterProps<TItem>) =>
     props.getResultFunction(getResult)
     return <div>
 
-        <Grid container spacing={2} className={classes.root}  alignItems="flex-start">
+        <Grid container spacing={2} alignItems="flex-start">
 
             <Grid item xs={3}>
                 <TextField
-                    className={classes.timeTextField}
+                    // className={classes.timeTextField}
+                    sx={styles.textField}
                     size="small"
                     id="datetime-local"
                     label="From"
@@ -56,7 +56,7 @@ const DateTimeFilter: TableFilter = <TItem,>(props: ITableFilterProps<TItem>) =>
             <Grid item xs={3} >
                 <TextField
                     fullWidth
-                    className={classes.timeTextField}
+                    sx={styles.textField}
                     id="datetime-local"
                     label="To"
                     type="datetime-local"

@@ -1,19 +1,19 @@
 import * as React from "react";
 import clsx from "clsx";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import IconButton from "@material-ui/core/IconButton";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import { useStyles } from "../layout-styles";
-import Typography from "@material-ui/core/Typography";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import IconButton from "@mui/material/IconButton";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+// import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { useLayoutStyles } from "../layout-styles";
+import Typography from "@mui/material/Typography";
 import { Route, routes } from "../../routes";
 import { container, ServiceName, AppError } from "../../core";
 import ILogger from "../../core/services/Logger/ILogger";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import SidebarItem from "./SidebarItem";
 interface ISidebarProps {
 	open: boolean;
@@ -21,7 +21,7 @@ interface ISidebarProps {
 }
 
 const Sidebar: React.FunctionComponent<ISidebarProps> = (props) => {
-	const classes = useStyles();
+	const classes = useLayoutStyles();
 	
 	const links: Route[] = routes;
 	const logger = container.get<ILogger>(ServiceName.Logger);

@@ -1,10 +1,10 @@
-import { ListItem, List, ListItemIcon, ListItemText } from '@material-ui/core';
+import { ListItem, List, ListItemIcon, ListItemText } from '@mui/material';
 import clsx from 'clsx';
 import * as React from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { Route } from '../../routes';
-import { useStyles } from '../layout-styles';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import { useLayoutStyles } from '../layout-styles';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 interface ISidebarItemProps {
     route: Route,
@@ -13,7 +13,7 @@ interface ISidebarItemProps {
 const SidebarItem: React.FunctionComponent<ISidebarItemProps> = (props) => {
     const history = useHistory();
     const location = useLocation();
-    const classes = useStyles();
+    const classes = useLayoutStyles();
     const linkIsActive = (route: Route) => {
         if (route.exact) {
             return route.path === location.pathname;

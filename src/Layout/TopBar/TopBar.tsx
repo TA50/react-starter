@@ -1,20 +1,21 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import { useStyles } from "../layout-styles";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import {styled} from "@mui/material";
 import { getPageTitle } from '../../routes/routesHelper';
 import { useHistory, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import {useLayoutStyles} from "../layout-styles";
 interface ITopBarProps {
 	handleMenuToggle: () => void;
 	sidBarOpen: boolean;
 }
 const TopBar: React.FunctionComponent<ITopBarProps> = (props) => {
-	const classes = useStyles();
+	const classes = useLayoutStyles();
 	const history = useHistory();
 	const location = useLocation();
 	const pageTitle = getPageTitle(location.pathname);

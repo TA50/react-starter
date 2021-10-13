@@ -1,4 +1,4 @@
-import {Dashboard} from "@material-ui/icons";
+import {Dashboard} from "@mui/icons-material";
 import {Route} from "./types";
 import ExamplePage from "../pages/ExamplePage";
 import TodoPage from '../pages/TodoPage/TodoPage';

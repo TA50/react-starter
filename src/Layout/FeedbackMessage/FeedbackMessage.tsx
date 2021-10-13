@@ -1,5 +1,4 @@
-import { Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { Snackbar, Alert } from '@mui/material';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { container, Feedback, FeedbackService, RootState, ServiceName } from '../../core';

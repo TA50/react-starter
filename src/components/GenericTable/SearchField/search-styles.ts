@@ -1,28 +1,36 @@
-import { alpha, makeStyles, Theme } from "@material-ui/core";
-const useStyles = makeStyles((theme: Theme) => {
+import { makeStyles } from "@material-ui/styles";
+import { Theme } from "@mui/material";
+import { SxStyles } from "../../../core";
+
+export const searchFilterStyles: SxStyles = {
+
+	root: {
+		borderRadius: 1,
+	},
+	search: {
+		borderRadius: 1,
+		position: "relative",
+		background: "inherit",
+	},
+	searchIcon: {
+		py: 0,
+		px: 2,
+		height: "100%",
+		position: "absolute",
+		pointerEvents: "none",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+
+}
+
+
+export const useSearchFieldStyles = makeStyles((theme: Theme) => {
 	return {
-		root: {
-			borderRadius: theme.shape.borderRadius,
-			// backgroundColor: alpha(theme.palette.divider, 0.25),
-		},
-		search: {
-			borderRadius: theme.shape.borderRadius,
-			position: "relative",
-			background: "inherit",
-		},
-		searchIcon: {
-			padding: theme.spacing(0, 2),
-			height: "100%",
-			position: "absolute",
-			pointerEvents: "none",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			//cursor: "pointer",
-		},
 		inputRoot: {
 			color: "inherit",
-			marginLeft: `calc(1em + ${theme.spacing(4)}px)`,
+			marginLeft:  `calc(1em + ${theme.spacing(4)}px)`,
 			width: "auto",
 		},
 		inputInput: {
@@ -34,7 +42,5 @@ const useStyles = makeStyles((theme: Theme) => {
 				width: "50ch",
 			},
 		},
-	};
+	}
 });
-
-export default useStyles;

@@ -14,22 +14,17 @@ export interface IGenericTableProps<TItem> {
     data: TItem[];
     rowTemplate: (item: TItem) => JSX.Element;
     headCells: HeadCell<TItem>[];
- 
-    // selectSearchFunction?: (item: TItem) => string;
-    // disableSearchField?: boolean;
+
  
     onPageChange?: (event: object, page: number) => void,
     onPageCountChange?: any,
-
-    // disableDateTimeFilter?: boolean;
-    // selectDate?: (item: TItem)=> Date;
 
     handlePageCountChanged?: (newPageCount: number)=> void;
     handleChangeRowsPerPage?: (rowsPerPage:  number)=> void;
 
     disableExportButton?: boolean;
 
-    filters : FilterParam<TItem>[];
+    filters? : FilterParam<TItem>[];
  
 }
 
@@ -37,4 +32,12 @@ export interface IGenericTableProps<TItem> {
 export type FilterParam<TItem> = {
     component: TableFilter;
     selectFn: (item: TItem) => any;
+}
+
+export interface IGenericTableState<TItem>{ 
+    pageCount: number;
+    rowsPerPage: number;
+    displayedData: TItem[];
+    isAsc: boolean;
+    orderBy: number | null, 
 }
